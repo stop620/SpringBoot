@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" xmlns:th="thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Perfume</title>
+    <script src="js/perfume.js"></script>
+</head>
+<body>
+
+    <div id="main-container">
+        <h2 id="title">향수 설문조사</h2>
+
+        <div id="form-container">
+            <form id="input-form" th:action="@{save}" method="post">
+
+                <label for="input-name">이름</label> <br>
+                <input type="text" name="name" id="input-name" placeholder="이름을 입력하세요"> <br>
+
+                <label for="select-gender">성별</label> <br>
+                <select name="gender" id="select-gender">
+                    <option value="">선택하세요</option>
+                    <option value="여성">여성</option>
+                    <option value="남성">남성</option>
+                </select> <br>
+
+                <label for="input-age">나이</label> <br>
+                <input type="number" name="age" id="input-age" placeholder="나이를 입력하세요"> <br>
+
+                <label for="select-scent">가장 좋아하는 향기</label> <br>
+                <select name="favorite_scent" id="select-scent">
+                    <option value="">선택하세요</option>
+                    <option value="플로럴">1.플로럴</option>
+                    <option value="시트러스">2.시트러스</option>
+                    <option value="프루티">3.프루티</option>
+                    <option value="우디">4.우디</option>
+                    <option value="오리엔탈">5.오리엔탈</option>
+                    <option value="아쿠아틱">6.아쿠아틱</option>
+                </select> <br>
+
+                <label for="freq-radio-container">향수를 얼마나 자주 사용하시나요?</label> <br>
+                <div id="freq-radio-container">
+                    <div id="freq-box1">
+                        <input type="radio" name="usage_frequency" id="freq1" value="매일"> <br> 매일
+                    </div>
+                    <div id="freq-box2">
+                        <input type="radio" name="usage_frequency" id="freq2" value="주 2~4회"> <br> 주 2~4회
+                    </div>
+                    <div id="freq-box3">
+                        <input type="radio" name="usage_frequency" id="freq3" value="가끔"> <br> 가끔
+                    </div>
+                    <div id="freq-box4">
+                        <input type="radio" name="usage_frequency" id="freq4" value="사용하지 않음" checked> <br> 사용하지 않음
+                    </div>
+                </div>
+                <br>
+
+                <label for="input-brand">선호하는 향수 브랜드</label> <br>
+                <input type="text" name="favorite_brand" id="input-brand" placeholder="브랜드를 입력하세요"> <br>
+
+                <label for="select-budget">향수 구매 시 예상 예산</label> <br>
+                <select name="purchase_budget" id="select-budget">
+                    <option value="5만원-10만원">5만원-10만원</option>
+                    <option value="10만원-15만원">10만원-15만원</option>
+                    <option value="15만원-20만원">15만원-20만원</option>
+                    <option value="20만원-25만원">20만원-25만원</option>
+                    <option value="25만원-30만원">25만원-30만원</option>
+                    <option value="30만원 이상">30만원 이상</option>
+
+                </select>
+                <br>
+
+                <label for="input-comment">추가 의견</label> <br>
+                <textarea name="comments" id="input-comment" rows="5" placeholder="의견을 적어주세요" ></textarea> <br>
+            </form>
+
+        </div>
+
+        <div id="button-container">
+            <input type="submit" form="input-form" value="설문 제출" onclick="return check()">
+            <input type="button" value="설문 결과" th:onclick="|location.href='@{result}'|">
+        </div>
+    </div>
+</body>
+</html>
