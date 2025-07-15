@@ -9,7 +9,7 @@
 <body>
 
     <div id="main-container">
-        <h2><a th:href="@{./}">향수 설문 결과</a></h2>
+        <h2 id="title"><a th:href="@{./}">향수 설문 결과</a></h2>
 
         <div id="table-container">
             <h3 id="result-title">
@@ -19,7 +19,7 @@
                 <span th:text="'남 ' +  (${perfumes.size()} - ${femaleCount})" style="color: mediumblue"></span>
                 )
             </h3>
-            <table>
+            <table id="result-table">
                 <tr>
                     <th>이름</th>
                     <th>나이</th>
@@ -33,12 +33,12 @@
                 <tr th:each="perfume : ${perfumes}">
                     <td th:text="${perfume.name}" th:style="${perfume.gender == '여성' ? 'color: magenta' : 'color: mediumblue'}"></td>
                     <td th:text="${perfume.age}"></td>
-                    <td th:text="${perfume.favorite_scent}"></td>
-                    <td th:text="${perfume.usage_frequency}"></td>
-                    <td th:text="${perfume.favorite_brand}"></td>
-                    <td th:text="${perfume.purchase_budget}"></td>
-                    <td th:text="${perfume.comments}"></td>
-                    <td th:text="${perfume.completion_time}"></td>
+                    <td th:text="${perfume.favoriteScent}"></td>
+                    <td th:text="${perfume.usageFrequency}"></td>
+                    <td th:text="${perfume.favoriteBrand}"></td>
+                    <td th:text="${perfume.purchaseBudget}"></td>
+                    <td class="cell-wrap" th:text="${perfume.comments}"></td>
+                    <td th:text="${#temporals.format(perfume.completionTime, 'yyyy-MM-dd HH:mm:ss')}"></td>
                 </tr>
             </table>
         </div>

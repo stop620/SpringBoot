@@ -18,11 +18,11 @@ public class PerfumeDTO {
     private String name;
     private String gender;
     private int age;
-    private String favorite_scent;
-    private String favorite_brand;
-    private String usage_frequency;
-    private String purchase_budget;
+    private String favoriteScent;
+    private String favoriteBrand;
+    private String usageFrequency;
+    private String purchaseBudget;
     private String comments;
-    private LocalDateTime completion_time;
+    private LocalDateTime completionTime;
 
 }

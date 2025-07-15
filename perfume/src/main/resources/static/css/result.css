@@ -1,5 +1,77 @@
 body {
     background-image: url('../image/image.jpg');
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
+
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+
+    min-width: 1200px;
+}
+
+#main-container {
+    min-width: 1000px;
+    max-width: 1700px;
+}
+
+#title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 40px;
+}
+
+#title a {
+    width: 400px;
+    display: inline-block;
+    align-self: center;
+    text-decoration: none;
+    color: #474f64;
+}
+
+#result-title {
+    font-size: 30px;
+    font-weight: 600;
+    color: #474f64;
+    margin-bottom: 15px;
+}
+
+#table-container {
+    width: 100%;
+}
+
+#result-table {
+    width: 100%;
+    border: 2px solid lightgray;
+    border-collapse: collapse;
+    font-size: 20px;
+}
+
+th, td {
+    padding: 10px 50px;
+    text-align: center;
+    border: 1px solid lightgray;
+    text-wrap: nowrap;
+}
+
+th {
+    background-color: rgba(160, 255, 201, 0.3);
+    font-weight: 600;
+    color: #5c6376;
+}
+
+td {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #3c4356;
+}
+
+.cell-wrap {
+    text-wrap: wrap;
+    word-break: keep-all;
 }

@@ -5,8 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
@@ -16,6 +16,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @Table(name = "perfume")
+@EntityListeners(AuditingEntityListener.class)
 public class PerfumeEntity {
 
     @Id
@@ -25,12 +26,21 @@ public class PerfumeEntity {
     private String name;
     private String gender;
     private int age;
-    private String favorite_scent;
-    private String favorite_brand;
-    private String usage_frequency;
-    private String purchase_budget;
+
+    @Column(name = "favorite_scent")
+    private String favoriteScent;
+
+    @Column(name = "favorite_brand")
+    private String favoriteBrand;
+
+    @Column(name = "usage_frequency")
+    private String usageFrequency;
+
+    @Column(name = "purchase_budget")
+    private String purchaseBudget;
+
     private String comments;
 
-    @CreationTimestamp
-    private LocalDateTime completion_time;
+    @CreatedDate
+    private LocalDateTime completionTime;
 }

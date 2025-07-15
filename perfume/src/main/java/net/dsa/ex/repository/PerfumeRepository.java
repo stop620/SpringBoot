@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PerfumeRepository extends JpaRepository<PerfumeEntity, Integer> {
+
+    // count by gender
+    int countByGender(String gender);
 }

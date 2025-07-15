@@ -29,7 +29,7 @@ public class PerfumeController {
     @GetMapping("result")
     public String result(Model model) {
 
-        int female = 0;
+        int femaleCount = ps.countFemale();
         List<PerfumeDTO> list = new ArrayList<>();
 
         list = ps.findAll();
@@ -37,13 +37,7 @@ public class PerfumeController {
 
         log.debug("perfumes: {}", model.getAttribute("perfumes"));
 
-        for (PerfumeDTO dto : list) {
-            if(dto.getGender().equals("여성")) {
-                female++;
-            }
-        }
-
-        model.addAttribute("femaleCount", female);
+        model.addAttribute("femaleCount", femaleCount);
 
         return "result";
     }

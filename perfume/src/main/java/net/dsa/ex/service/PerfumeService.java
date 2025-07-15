@@ -6,6 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import net.dsa.ex.dto.PerfumeDTO;
 import net.dsa.ex.entity.PerfumeEntity;
 import net.dsa.ex.repository.PerfumeRepository;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Order;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,26 +21,27 @@ public class PerfumeService {
 
     private final PerfumeRepository pr;
 
-    // function
+    // 저장
     public void save(PerfumeDTO dto) {
 
         PerfumeEntity entity = PerfumeEntity.builder()
                 .name(dto.getName())
                 .gender(dto.getGender())
                 .age(dto.getAge())
-                .favorite_scent(dto.getFavorite_scent())
-                .favorite_brand(dto.getFavorite_brand())
-                .usage_frequency(dto.getUsage_frequency())
-                .purchase_budget(dto.getPurchase_budget())
+                .favoriteScent(dto.getFavoriteScent())
+                .favoriteBrand(dto.getFavoriteBrand())
+                .usageFrequency(dto.getUsageFrequency())
+                .purchaseBudget(dto.getPurchaseBudget())
                 .comments(dto.getComments())
                 .build();
 
         pr.save(entity);
     }
 
+    // 전체 조회
     public List<PerfumeDTO> findAll() {
 
-        List<PerfumeEntity> entityList = pr.findAll();
+        List<PerfumeEntity> entityList = pr.findAll(Sort.by(Order.desc("gender"), Order.asc("age"), Order.desc("completionTime")));
         List<PerfumeDTO> perfumes = new ArrayList<>();
 
         for(PerfumeEntity entity : entityList) {
@@ -48,16 +51,21 @@ public class PerfumeService {
             dto.setName(entity.getName());
             dto.setGender(entity.getGender());
             dto.setAge(entity.getAge());
-            dto.setFavorite_scent(entity.getFavorite_scent());
-            dto.setFavorite_brand(entity.getFavorite_brand());
-            dto.setUsage_frequency(entity.getUsage_frequency());
-            dto.setPurchase_budget(entity.getPurchase_budget());
+            dto.setFavoriteScent(entity.getFavoriteScent());
+            dto.setFavoriteBrand(entity.getFavoriteBrand());
+            dto.setUsageFrequency(entity.getUsageFrequency());
+            dto.setPurchaseBudget(entity.getPurchaseBudget());
             dto.setComments(entity.getComments());
-            dto.setCompletion_time(entity.getCompletion_time());
+            dto.setCompletionTime(entity.getCompletionTime());
 
             perfumes.add(dto);
         }
 
         return perfumes;
+    }
+
+    // 여자 카운트
+    public int countFemale() {
+        return pr.countByGender("여성");
     }
 }
