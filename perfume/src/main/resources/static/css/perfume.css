@@ -1,0 +1,163 @@
+/* =================================
+   기본 및 전체 레이아웃 (Body & Main Container)
+   ================================= */
+body {
+    /* 배경 이미지는 royalty-free 이미지로 대체했습니다.
+       기존 'image.jpg'를 사용하시려면 경로를 확인해주세요. */
+    background-color: lightgrey;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    margin: 0;
+    padding: 40px; /* 상하 스크롤을 위해 패딩 추가 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* 최소 높이를 화면 전체로 설정 */
+    font-family: 'Arial', sans-serif; /* 가독성 좋은 기본 폰트 */
+    box-sizing: border-box;
+}
+
+#main-container {
+    background-color: white; /* 살짝 투명한 흰색 배경 */
+
+    width: 700px; /* 최대 너비 지정 */
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+#title {
+    text-align: center;
+    color: #474f64;
+    margin: 10px;
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+.input-group {
+    margin-bottom: 10px;
+}
+
+.input-group label {
+    display: block; /* label을 block 요소로 만들어 줄바꿈 처리 */
+
+    font-weight: 600; /* bold 대신 600 사용 */
+    margin-bottom: 10px;
+}
+
+
+/* =================================
+   입력 요소 스타일 (Inputs, Select, Textarea)
+   ================================= */
+
+/* 공통 입력 요소 스타일 */
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    height: 30px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+/* 입력 요소 포커스 시 스타일 */
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border:2px solid #FFB8EC; /* 브랜드 색상 중 하나로 포커스 색상 통일 */
+    box-shadow: 0 0 0 3px rgba(255, 184, 236, 0.4);
+}
+
+
+/* =================================
+   커스텀 라디오 버튼 (Custom Radio Buttons)
+   ================================= */
+#freq-radio-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; /* 균등한 간격으로 배치 */
+    align-items: flex-start;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* 라디오 버튼과 텍스트를 감싸는 각 박스 */
+#freq-radio-container > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    gap: 3px; /* 아이콘과 텍스트 사이 간격 */
+}
+
+
+input[type="radio"]:hover {
+    cursor: pointer;
+}
+
+
+
+/* =================================
+   제출 버튼 (Buttons)
+   ================================= */
+#button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* 버튼 사이 간격 */
+    margin-top: 20px;
+}
+
+#button-container input {
+    width: 150px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+#button-container input:hover {
+    opacity: 0.9;
+}
+
+#button-container input:active {
+    transform: scale(0.98); /* 클릭 시 살짝 작아지는 효과 */
+}
+
+/* 설문 제출 버튼 */
+input[type="submit"] {
+    background-color: #89b3ff; /* 이미지의 파란색과 유사하게 */
+    color: white;
+}
+
+/* 설문 결과 버튼 */
+input[type="button"] {
+    background-color: #a9a9a9; /* 이미지의 회색과 유사하게 */
+    color: white;
+}
+
+
+/* =================================
+   라벨 색상 (Label Colors)
+   ================================= */
+label[for="input-name"] { color: #ff3d47; }
+label[for="select-gender"] { color: #ff8249; }
+label[for="input-age"] { color: #e6c60d; } /* 기존 색상이 너무 밝아 가독성을 위해 조정 */
+label[for="select-scent"] { color: #5db332; } /* 기존 색상이 너무 밝아 가독성을 위해 조정 */
+label[for="freq-radio-container"] { color: #3f6dff; }
+label[for="input-brand"] { color: #a86cff; }
+label[for="select-budget"] { color: #f554ef; }
+label[for="input-comment"] { color: #00b38a; } /* 기존 색상이 너무 밝아 가독성을 위해 조정 */

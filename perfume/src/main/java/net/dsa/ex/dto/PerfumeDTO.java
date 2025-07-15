@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class PerfumeDTO {
 
-    private int id;
+    private int no;
     private String name;
     private String gender;
     private int age;

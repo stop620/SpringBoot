@@ -20,7 +20,7 @@ public class PerfumeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int no;
 
     private String name;
     private String gender;

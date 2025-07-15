@@ -8,6 +8,9 @@ import net.dsa.ex.entity.PerfumeEntity;
 import net.dsa.ex.repository.PerfumeRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @Slf4j
 @Transactional
@@ -31,5 +34,30 @@ public class PerfumeService {
                 .build();
 
         pr.save(entity);
+    }
+
+    public List<PerfumeDTO> findAll() {
+
+        List<PerfumeEntity> entityList = pr.findAll();
+        List<PerfumeDTO> perfumes = new ArrayList<>();
+
+        for(PerfumeEntity entity : entityList) {
+            PerfumeDTO dto = new PerfumeDTO();
+
+            dto.setNo(entity.getNo());
+            dto.setName(entity.getName());
+            dto.setGender(entity.getGender());
+            dto.setAge(entity.getAge());
+            dto.setFavorite_scent(entity.getFavorite_scent());
+            dto.setFavorite_brand(entity.getFavorite_brand());
+            dto.setUsage_frequency(entity.getUsage_frequency());
+            dto.setPurchase_budget(entity.getPurchase_budget());
+            dto.setComments(entity.getComments());
+            dto.setCompletion_time(entity.getCompletion_time());
+
+            perfumes.add(dto);
+        }
+
+        return perfumes;
     }
 }
