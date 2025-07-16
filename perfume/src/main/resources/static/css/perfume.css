@@ -17,7 +17,7 @@ body {
 #main-container {
     background-color: white;
 
-    width: 700px;
+    width: 550px;
     display: flex;
     flex-direction: column;
     padding: 30px;
@@ -80,7 +80,7 @@ textarea:focus {
     accent-color: #3f6dff;
 }
 
-#freq-radio-container > div {
+#freq-radio-container div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -89,9 +89,13 @@ textarea:focus {
     gap: 5px;
 }
 
+#freq-radio-container div label {
+    cursor: inherit;
+}
 
-input[type="radio"]:hover {
-    cursor: pointer;
+
+input[type="radio"] {
+    cursor: inherit;
 }
 
 #button-container {
